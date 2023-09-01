@@ -19,7 +19,7 @@ export default function SignUp() {
                 <h3 className='text-sm mt-2 mb-10 text-slate-400'>Create a new account just a few steps.</h3>
 
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <div className='mb-2 w-4/5 flex gap-2'>
+                    <div className='mb-2 w-full lg:w-4/5 flex gap-2'>
                         <input
                             type="text"
                             name='first_name'
@@ -36,7 +36,7 @@ export default function SignUp() {
                         />
                     </div>
 
-                    <div className='mb-2 w-4/5'>
+                    <div className='mb-2 w-full lg:w-4/5'>
                         <input
                             type="text"
                             name='email'
@@ -45,7 +45,7 @@ export default function SignUp() {
                             className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         />
                     </div>
-                    <div className='mb-2 w-4/5 relative'>
+                    <div className='mb-2 w-full lg:w-4/5 relative'>
                         <input
                             type={`${showPassword ? 'text' : 'password'}`}
                             name='password'
@@ -61,7 +61,7 @@ export default function SignUp() {
                             size='sm'
                         />
                     </div>
-                    <div className='mb-2 w-4/5 relative'>
+                    <div className='mb-2 w-full lg:w-4/5 relative'>
                         <input
                             type={`${showPassword ? 'text' : 'password'}`}
                             name='confirm_password'
@@ -77,7 +77,7 @@ export default function SignUp() {
                         />
                     </div>
 
-                    <div className='w-4/5'>
+                    <div className='w-full lg:w-4/5'>
                         <button type='submit' className='w-full py-3 mt-10 bg-black text-white rounded-md hover:bg-slate-700'>
                             Sign up
                         </button>
