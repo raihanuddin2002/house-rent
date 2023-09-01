@@ -2,10 +2,13 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Dosis } from 'next/font/google'
 import Image from 'next/image'
-import logo from './favicon.ico';
+import logo from './favicon.ico'
 import Link from 'next/link'
 import StateContext from '@/context/StateContext'
 import Nav from './components/Nav';
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const inter = Dosis({
   weight: ['400', '500', '700'],
