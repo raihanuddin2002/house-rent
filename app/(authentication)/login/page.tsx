@@ -1,10 +1,14 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import logo from '../../favicon.ico';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 
 export default function Login() {
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <section className='grid items-center'>
             <div className='px-12'>
@@ -24,15 +28,20 @@ export default function Login() {
                             className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         />
                     </div>
-                    <div className='mb-2 w-4/5'>
+                    <div className='mb-2 w-4/5 relative'>
                         <input
-                            type="password"
+                            type={`${showPassword ? 'text' : 'password'}`}
                             name='password'
                             placeholder='Password'
                             autoComplete='off'
                             className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         />
-
+                        <FontAwesomeIcon
+                            onClick={() => setShowPassword(prev => !prev)}
+                            icon={showPassword ? faEye : faEyeSlash}
+                            className='absolute right-4 top-1/3'
+                            size='sm'
+                        />
                     </div>
 
                     <div className='w-4/5'>
