@@ -1,13 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Dosis } from 'next/font/google'
-import Image from 'next/image'
-import logo from './favicon.ico'
 import Link from 'next/link'
 import StateContext from '@/context/StateContext'
 import Nav from './components/Nav';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import LogoImage from './components/Logo'
 config.autoAddCss = false
 
 const inter = Dosis({
@@ -42,7 +41,7 @@ export default function RootLayout({
           '>
             <Link href='/'>
               <div className='flex items-center'>
-                <Image className='me-3' src={logo} width={35} height={35} alt='logo' />
+                <LogoImage className='me-3' width={35} height={35} />
                 <h1 className='text-2xl font-semibold'>Bachelor</h1>
               </div>
             </Link>

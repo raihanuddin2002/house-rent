@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import React from 'react'
-import logo from '../favicon.ico';
+import Image from 'next/image'
+import LogoImage from '../components/Logo';
 
 export default function AuthenticationLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -14,14 +14,14 @@ export default function AuthenticationLayout({ children }: { children: React.Rea
                     <Image
                         className='mx-auto'
                         src='/images/authentication.png'
-                        alt='logo'
+                        alt='authentication image'
                         width={700}
                         height={500}
                     />
                 </section>
                 <section className='grid items-center'>
                     <div className='px-6 md:px-12'>
-                        <Image className='hidden md:block mb-10' src={logo} alt='logo' width={50} height={50} />
+                        <LogoImage className='hidden md:block mb-10' width={50} height={50} />
 
                         {children}
                     </div>
