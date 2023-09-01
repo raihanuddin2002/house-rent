@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import logo from '../favicon.ico';
 
 export default function AuthenticationLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -18,8 +19,13 @@ export default function AuthenticationLayout({ children }: { children: React.Rea
                         height={500}
                     />
                 </section>
+                <section className='grid items-center'>
+                    <div className='px-6 md:px-12'>
+                        <Image className='hidden md:block mb-10' src={logo} alt='logo' width={50} height={50} />
 
-                {children}
+                        {children}
+                    </div>
+                </section>
             </div>
         </div>
     )

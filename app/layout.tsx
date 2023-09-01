@@ -30,9 +30,12 @@ export default function RootLayout({
       <body className={`${inter.className} h-screen`}>
         <header className='bg-slate-200'>
           <section className='
-            w-3/4 
             h-[70px]
-            mx-auto 
+            w-full
+            md:w-3/4
+            md:mx-auto
+            p-6
+            md:p-0
             flex 
             justify-between
             items-center 

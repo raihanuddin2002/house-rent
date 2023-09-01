@@ -6,4 +6,4 @@
 - Implement linear progress loader using tailwind css
 - Implement font awesome in Next 13.4
 - Add show & hide toggle option in password Input
-
+- Need to adjust authentication screens in a medium and small device
