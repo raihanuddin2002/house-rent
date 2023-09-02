@@ -8,3 +8,4 @@
 - Add show & hide toggle option in password Input
 - Need to adjust authentication screens in a medium and small device
 - Make a common component for logo 
+- Add responsive navbar
