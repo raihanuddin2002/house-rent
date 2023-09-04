@@ -1,5 +1,5 @@
 ## Sprint 1 [28 Aug, 2023 - 10 Sep, 2023]
-## [released]
+### [released]
 - Add navigation
 - Sign up page design
 - Login page design
