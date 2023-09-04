@@ -22,6 +22,8 @@ export default function Login() {
                         placeholder='Email'
                         autoComplete='off'
                         className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={150}
+                        required
                     />
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
@@ -31,6 +33,9 @@ export default function Login() {
                         placeholder='Password'
                         autoComplete='off'
                         className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={70}
+                        minLength={8}
+                        required
                     />
                     <FontAwesomeIcon
                         onClick={() => setShowPassword(prev => !prev)}
