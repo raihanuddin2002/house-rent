@@ -22,6 +22,9 @@ export default function SignUp() {
                         placeholder='First Name'
                         autoComplete='off'
                         className='w-2/4 border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={100}
+                        minLength={2}
+                        required
                     />
                     <input
                         type="text"
@@ -29,6 +32,8 @@ export default function SignUp() {
                         placeholder='Last Name'
                         autoComplete='off'
                         className='w-2/4 border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={100}
+                        required
                     />
                 </div>
 
@@ -39,6 +44,8 @@ export default function SignUp() {
                         placeholder='Email'
                         autoComplete='off'
                         className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={150}
+                        required
                     />
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
@@ -48,7 +55,9 @@ export default function SignUp() {
                         placeholder='Password'
                         autoComplete='off'
                         className='w-full border border-slate-200 rounded-md p-3 pr-10 bg-white focus:border-black focus:outline-none'
-                        maxLength={50}
+                        maxLength={70}
+                        minLength={8}
+                        required
                     />
                     <FontAwesomeIcon
                         onClick={() => setShowPassword(prev => !prev)}
@@ -64,6 +73,9 @@ export default function SignUp() {
                         placeholder='Confirm Password'
                         autoComplete='off'
                         className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        maxLength={70}
+                        minLength={8}
+                        required
                     />
                     <FontAwesomeIcon
                         onClick={() => setShowConfirmPassword(prev => !prev)}
