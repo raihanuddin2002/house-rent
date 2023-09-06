@@ -68,7 +68,7 @@ export default function SignUp() {
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
                     <input
-                        type={`${showPassword ? 'text' : 'password'}`}
+                        type={`${showConfirmPassword ? 'text' : 'password'}`}
                         name='confirm_password'
                         placeholder='Confirm Password'
                         autoComplete='off'
