@@ -11,3 +11,4 @@
 - Add responsive navbar
 - Set max width, min width and required option in authentication input fields
 - Password and Confirm password input is not working as expected in sign up screen
+- Email input type should email in Authentication screens

@@ -17,7 +17,7 @@ export default function Login() {
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className='mb-2 w-full lg:w-4/5'>
                     <input
-                        type="text"
+                        type="email"
                         name='email'
                         placeholder='Email'
                         autoComplete='off'
