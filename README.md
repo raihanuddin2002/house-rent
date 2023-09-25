@@ -3,5 +3,5 @@
 
 
 ## Some developed feature's shortcut location
-- Responsive tailwind navbar : https://github.com/raihanuddin2002/bachelor/tree/feature/add-responsive-navbar
+- Responsive tailwind navbar : https://github.com/raihanuddin2002/bachelor/pull/11/files
 - Tailwind linear progress: https://github.com/raihanuddin2002/bachelor/pull/19/files
