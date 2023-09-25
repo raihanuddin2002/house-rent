@@ -4,4 +4,4 @@
 
 ## Some developed feature's shortcut location
 - Responsive tailwind navbar : https://github.com/raihanuddin2002/bachelor/tree/feature/add-responsive-navbar
-- Tailwind linear progress: /app/components/loader/LinearProgress.tsx
+- Tailwind linear progress: https://github.com/raihanuddin2002/bachelor/pull/19/files
