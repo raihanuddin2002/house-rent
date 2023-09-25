@@ -11,3 +11,8 @@
 - Set max width, min width and required option in authentication input fields
 - Password and Confirm password input is not working as expected in sign up screen
 - Email input type should email in Authentication screens
+
+## Sprint 2 [25 Sep, 2023 - 30 Sep, 2023]
+
+### [released]
+- Add linear progress loader
