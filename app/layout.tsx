@@ -7,6 +7,7 @@ import Nav from './components/Nav';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import LogoImage from './components/Logo'
+import { SessionProvider } from "next-auth/react"
 config.autoAddCss = false
 
 const inter = Dosis({
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
   return (
     <html lang="en">
@@ -50,9 +51,11 @@ export default function RootLayout({
         </header>
 
         <main>
-          <StateContext>
-            {children}
-          </StateContext>
+          <SessionProvider>
+            <StateContext>
+              {children}
+            </StateContext>
+          </SessionProvider>
         </main>
       </body>
     </html>

@@ -16,3 +16,8 @@
 
 ### [released]
 - Add linear progress loader
+
+## Sprint 3 [01 Oct, 2023 - 10 Sep, 2023]
+
+### [released]
+- Implement next-auth
