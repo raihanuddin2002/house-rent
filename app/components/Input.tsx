@@ -1,4 +1,5 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type InputProps = {
     type: string;
@@ -11,12 +12,12 @@ type InputProps = {
     required?: boolean;
 }
 
-export default function Input({ className, ...rest }: InputProps) {
+export default function Input({ className, ...props }: InputProps) {
     return (
         <>
             <input
-                {...rest}
-                className={`
+                {...props}
+                className={twMerge(`
                     w-full
                     border 
                     border-slate-200 
@@ -26,8 +27,7 @@ export default function Input({ className, ...rest }: InputProps) {
                     bg-white 
                     focus:border-black 
                     focus:outline-none
-                    ${className && className}
-                `}
+                `, className)}
             />
         </>
     )

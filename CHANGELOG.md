@@ -21,3 +21,4 @@
 
 ### [released]
 - Implement next-auth
+- Implement 'tailwind-merge'
