@@ -22,3 +22,4 @@
 ### [released]
 - Implement next-auth
 - Implement 'tailwind-merge'
+- Implement 'Input' component in authentication pages

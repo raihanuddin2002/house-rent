@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import Input from '@/app/components/Input';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -16,23 +17,21 @@ export default function Login() {
 
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className='mb-2 w-full lg:w-4/5'>
-                    <input
+                    <Input
                         type="email"
                         name='email'
                         placeholder='Email'
                         autoComplete='off'
-                        className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         maxLength={150}
                         required
                     />
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
-                    <input
+                    <Input
                         type={`${showPassword ? 'text' : 'password'}`}
                         name='password'
                         placeholder='Password'
                         autoComplete='off'
-                        className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         maxLength={70}
                         minLength={8}
                         required

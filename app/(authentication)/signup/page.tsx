@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
+import Input from '@/app/components/Input';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -16,45 +17,43 @@ export default function SignUp() {
 
             <form onSubmit={(e) => e.preventDefault()}>
                 <div className='mb-2 w-full lg:w-4/5 flex gap-2'>
-                    <input
+                    <Input
                         type="text"
                         name='first_name'
                         placeholder='First Name'
                         autoComplete='off'
-                        className='w-2/4 border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        className='w-2/4'
                         maxLength={100}
                         minLength={2}
                         required
                     />
-                    <input
+                    <Input
                         type="text"
                         name='last_name'
                         placeholder='Last Name'
                         autoComplete='off'
-                        className='w-2/4 border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
+                        className='w-2/4'
                         maxLength={100}
                         required
                     />
                 </div>
 
                 <div className='mb-2 w-full lg:w-4/5'>
-                    <input
+                    <Input
                         type="email"
                         name='email'
                         placeholder='Email'
                         autoComplete='off'
-                        className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         maxLength={150}
                         required
                     />
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
-                    <input
+                    <Input
                         type={`${showPassword ? 'text' : 'password'}`}
                         name='password'
                         placeholder='Password'
                         autoComplete='off'
-                        className='w-full border border-slate-200 rounded-md p-3 pr-10 bg-white focus:border-black focus:outline-none'
                         maxLength={70}
                         minLength={8}
                         required
@@ -67,12 +66,11 @@ export default function SignUp() {
                     />
                 </div>
                 <div className='mb-2 w-full lg:w-4/5 relative'>
-                    <input
+                    <Input
                         type={`${showConfirmPassword ? 'text' : 'password'}`}
                         name='confirm_password'
                         placeholder='Confirm Password'
                         autoComplete='off'
-                        className='w-full border border-slate-200 rounded-md p-3 bg-white focus:border-black focus:outline-none'
                         maxLength={70}
                         minLength={8}
                         required
