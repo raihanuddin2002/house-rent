@@ -1,4 +1,20 @@
-## Sprint 1 [28 Aug, 2023 - 10 Sep, 2023]
+## Sprint 2 (October) [11 Oct, 2023 - 20 Oct, 2023]
+### [released]
+- Remove extra logo from authentication routes
+- Reorganize changelog.md
+
+## Sprint 1 (October) [01 Oct, 2023 - 10 Oct, 2023]
+### [released]
+- Implement next-auth
+- Implement 'tailwind-merge'
+- Implement 'Input' component in authentication pages
+- Giving error Next Auth SessionProvider
+
+## Sprint 2 (September) [25 Sep, 2023 - 30 Sep, 2023]
+### [released]
+- Add linear progress loader
+
+## Sprint 1 (Augest-September) [28 Aug, 2023 - 10 Sep, 2023]
 ### [released]
 - Add navigation
 - Sign up page design
@@ -11,17 +27,3 @@
 - Set max width, min width and required option in authentication input fields
 - Password and Confirm password input is not working as expected in sign up screen
 - Email input type should email in Authentication screens
-
-## Sprint 2 [25 Sep, 2023 - 30 Sep, 2023]
-
-### [released]
-- Add linear progress loader
-
-## Sprint 3 [01 Oct, 2023 - 10 Sep, 2023]
-
-### [released]
-- Implement next-auth
-- Implement 'tailwind-merge'
-- Implement 'Input' component in authentication pages
-- Giving error Next Auth SessionProvider
-- Remove extra logo from authentication routes
