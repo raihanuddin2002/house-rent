@@ -24,3 +24,4 @@
 - Implement 'tailwind-merge'
 - Implement 'Input' component in authentication pages
 - Giving error Next Auth SessionProvider
+- Remove extra logo from authentication routes
