@@ -49,9 +49,9 @@ export default function Nav() {
                     navLinks.map(nav => {
                         const isActive = nav.href === pathname;
 
-                        return <>
+                        return (
                             <div
-                                key={nav.name}
+                                key={nav.href}
                                 className={`${showResponsiveNav && 'px-6 py-3 md:p-0 hover:bg-black md:hover:bg-transparent hover:text-white md:hover:text-black'}`
                                 }>
                                 <Link
@@ -61,7 +61,7 @@ export default function Nav() {
                                     {nav.name}
                                 </Link>
                             </div>
-                        </>
+                        )
                     })
                 }
             </nav>
