@@ -7,7 +7,7 @@ import Nav from './components/Nav';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import LogoImage from './components/Logo'
-import AuthProvider from './components/providers/AuthProvider'
+import AuthProvider from './components/provider/AuthProvider'
 config.autoAddCss = false
 
 const inter = Dosis({

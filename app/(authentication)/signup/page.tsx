@@ -4,18 +4,27 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/app/components/Input';
+import Input from '@/app/components/Input/Input';
+import { Button } from '@/app/components/Button/Button';
+import { useFormState } from 'react-dom';
+import { SignUpAction } from './action';
+
+export type InitialFormState = {
+    status: string,
+    message: string
+}
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [state, formAction] = useFormState(SignUpAction, {} as InitialFormState);
 
     return (
         <>
             <h1 className='text-2xl md:text-3xl font-bold mt-10'>Welcome to Sign up</h1>
             <h3 className='text-sm md:mt-2 mb-10 text-slate-400'>Create a new account just a few steps.</h3>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form action={formAction}>
                 <div className='mb-2 w-full lg:w-4/5 flex gap-2'>
                     <Input
                         type="text"
@@ -84,11 +93,14 @@ export default function SignUp() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <button type='submit' className='w-full py-3 mt-10 bg-black text-white rounded-md hover:bg-slate-700'>
-                        Sign up
-                    </button>
+                    <Button
+                        type='submit'
+                        label="Sign Up"
+                    />
                 </div>
             </form>
+
+            <p> {state.message && state.message} </p>
         </>
 
     )

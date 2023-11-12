@@ -3,7 +3,8 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/app/components/Input';
+import Input from '@/app/components/Input/Input';
+import { Button } from '@/app/components/Button/Button';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -45,9 +46,10 @@ export default function Login() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <button type='submit' className='w-full py-3 mt-10 bg-black text-white rounded-md hover:bg-slate-700'>
-                        Login
-                    </button>
+                    <Button
+                        type='submit'
+                        label="Login"
+                    />
                 </div>
             </form>
         </>
