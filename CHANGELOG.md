@@ -1,6 +1,5 @@
 ## Sprint 2 (November) [10 Nov, 2023 - 20 Nov, 2023]
 ### [released]
-
 - Add manual signup
 
 ## Sprint 1 (November) [01 Nov, 2023 - 10 Nov, 2023]
