@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import Input from '@/app/components/Input/Input';
-import { Button } from '@/app/components/Button/Button';
+import SubmitButton from '@/app/components/Button/SubmitButton';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -46,10 +46,9 @@ export default function Login() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <Button
-                        type='submit'
-                        label="Login"
-                    />
+                    <SubmitButton>
+                        Login
+                    </SubmitButton>
                 </div>
             </form>
         </>

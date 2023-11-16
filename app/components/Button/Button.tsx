@@ -1,21 +1,22 @@
 'use client'
 
-import { useFormStatus } from 'react-dom'
 import { twMerge } from 'tailwind-merge';
 
 type ButtonProps = {
     type?: "button" | "submit" | "reset";
-    label: string;
+    children?: React.ReactNode;
     className?: string;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    disabled?: boolean;
 }
 
 export function Button({
     type,
-    label,
-    className
+    children,
+    className,
+    onClick,
+    ...props
 }: ButtonProps) {
-    const { pending } = useFormStatus()
-
     return (
         <button
             type={type ?? 'button'}
@@ -27,12 +28,13 @@ export function Button({
                     text-white 
                     rounded-md 
                     hover:bg-slate-700
-                `
+                    `
                 , className)
             }
-            aria-disabled={type === 'submit' && pending}
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => onClick && onClick(e)}
+            {...props}
         >
-            {label}
+            {children}
         </button>
     )
 }

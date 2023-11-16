@@ -1,15 +1,17 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
 import Input from '@/app/components/Input/Input';
-import { Button } from '@/app/components/Button/Button';
 import { useFormState } from 'react-dom';
 import { SignUpAction } from './action';
+import toastify, { ToastType } from '@/app/utils/tostify';
+import SubmitButton from '@/app/components/Button/SubmitButton';
 
 export type InitialFormState = {
+    responseType: ToastType;
     status: string,
     message: string
 }
@@ -18,6 +20,18 @@ export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [state, formAction] = useFormState(SignUpAction, {} as InitialFormState);
+    const toastId = useRef('');
+
+    useEffect(() => {
+        if (state.responseType && state.message) {
+            if (toastId.current) toastify.dismiss(toastId.current);
+
+            toastId.current = toastify.toast({
+                type: state.responseType,
+                message: state.message
+            });
+        }
+    }, [state])
 
     return (
         <>
@@ -93,14 +107,9 @@ export default function SignUp() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <Button
-                        type='submit'
-                        label="Sign Up"
-                    />
+                    <SubmitButton>Sign Up</SubmitButton>
                 </div>
             </form>
-
-            <p> {state.message && state.message} </p>
         </>
 
     )
