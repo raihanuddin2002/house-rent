@@ -8,6 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import LogoImage from './components/Logo'
 import AuthProvider from './components/provider/AuthProvider'
+import Toast from './components/Toast/Toast'
 config.autoAddCss = false
 
 const inter = Dosis({
@@ -57,6 +58,8 @@ export default function RootLayout({
             </StateContext>
           </AuthProvider>
         </main>
+
+        <Toast />
       </body>
     </html>
   )

@@ -3,13 +3,14 @@
 import prisma from "@/prisma";
 import { InitialFormState } from "./page";
 import bcrypt from "bcrypt";
+import { revalidatePath } from "next/cache";
 
-export async function SignUpAction(_prevState: InitialFormState, formData: FormData) {
+export async function SignUpAction(_prevState: InitialFormState, formData: FormData): Promise<InitialFormState> {
     try {
         const email = formData.get('email') as string;
 
         const isUserExist = await prisma.user.findUnique({ where: { email } });
-        if (isUserExist) return { status: "404", message: "User already exist!" };
+        if (isUserExist) return { responseType: 'error', status: "404", message: "User already exist!" };
 
         const password = formData.get('password') as string;
         const hashPassword = await bcrypt.hash(password, 10)
@@ -19,11 +20,12 @@ export async function SignUpAction(_prevState: InitialFormState, formData: FormD
         const user = await prisma.user.create({
             data: { firstName, lastName, email, password: hashPassword }
         })
-        if (!user.email) return { status: "404", message: 'Failed Attempt!' }
+        if (!user.id) return { responseType: 'error', status: "404", message: 'Failed Attempt!' }
 
-        return { status: "200", message: 'User Created Successfully!' }
+        revalidatePath('/signup')
+        return { responseType: 'success', status: "200", message: 'User Created Successfully!' }
     } catch (error) {
-        return { status: "500", message: 'Internal Server Error!' }
+        return { responseType: 'error', status: "500", message: 'Internal Server Error!' }
     }
 
 }
