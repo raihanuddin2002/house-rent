@@ -8,7 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import LogoImage from '../components/Logo'
 import AuthProvider from '../components/provider/AuthProvider'
-import Toast from '../components/Toast/Toast'
+import Toast from '../components/ui/toast/Toast'
 config.autoAddCss = false
 
 const inter = Dosis({
