@@ -4,6 +4,7 @@
 - Install 'react-toastify' in Next.js
 - Handle messages in signup form using 'react-tostify'
 - Add src folder
+- Add ui folder into components folder
 
 ## Sprint 1 (November) [01 Nov, 2023 - 10 Nov, 2023]
 ### [released]
