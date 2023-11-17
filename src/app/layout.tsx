@@ -2,13 +2,13 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Dosis } from 'next/font/google'
 import Link from 'next/link'
-import StateContext from '@/context/StateContext'
-import Nav from './components/Nav';
+import StateContext from '@/src/context/StateContext'
+import Nav from '../components/Nav';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import LogoImage from './components/Logo'
-import AuthProvider from './components/provider/AuthProvider'
-import Toast from './components/Toast/Toast'
+import LogoImage from '../components/Logo'
+import AuthProvider from '../components/provider/AuthProvider'
+import Toast from '../components/Toast/Toast'
 config.autoAddCss = false
 
 const inter = Dosis({

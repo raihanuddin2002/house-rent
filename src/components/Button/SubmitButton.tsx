@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Button } from './Button'
 import { useFormStatus } from 'react-dom';
-import toastify from '@/app/utils/tostify';
+import toastify from '@/src/utils/tostify';
 
 type SubmitButtonProps = {
     children: React.ReactNode;

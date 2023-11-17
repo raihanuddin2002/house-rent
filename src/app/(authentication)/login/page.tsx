@@ -3,8 +3,8 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/app/components/Input/Input';
-import SubmitButton from '@/app/components/Button/SubmitButton';
+import Input from '@/src/components/Input/Input';
+import SubmitButton from '@/src/components/Button/SubmitButton';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
