@@ -9,21 +9,27 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 export const navLinks = [
     {
         name: "Home",
-        href: "/"
+        href: "/",
+        loginRoute: true,
+        normalRoute: true
     },
     {
         name: "Login",
-        href: "/login"
+        href: "/login",
+        loginRoute: false,
+        normalRoute: true
     },
     {
         name: "Sign up",
-        href: "/signup"
-    },
-]
+        href: "/signup",
+        loginRoute: false,
+        normalRoute: true
+    }
+];
 
 export default function Nav() {
     const pathname = usePathname()
-    const [showResponsiveNav, setShowResponsiveNav] = useState(false)
+    const [showResponsiveNav, setShowResponsiveNav] = useState(false);
 
     return (
         <>
@@ -46,23 +52,24 @@ export default function Nav() {
                 md:gap-4   
             `}>
                 {
-                    navLinks.map(nav => {
-                        const isActive = nav.href === pathname;
+                    navLinks
+                        .map(nav => {
+                            const isActive = nav.href === pathname;
 
-                        return (
-                            <div
-                                key={nav.href}
-                                className={`${showResponsiveNav && 'px-6 py-3 md:p-0 hover:bg-black md:hover:bg-transparent hover:text-white md:hover:text-black'}`
-                                }>
-                                <Link
-                                    href={nav.href}
-                                    className={`md:hover:underline ${isActive && 'font-bold'}`}
-                                >
-                                    {nav.name}
-                                </Link>
-                            </div>
-                        )
-                    })
+                            return (
+                                <div
+                                    key={nav.href}
+                                    className={`${showResponsiveNav && 'px-6 py-3 md:p-0 hover:bg-black md:hover:bg-transparent hover:text-white md:hover:text-black'}`
+                                    }>
+                                    <Link
+                                        href={nav.href}
+                                        className={`md:hover:underline ${isActive && 'font-bold'}`}
+                                    >
+                                        {nav.name}
+                                    </Link>
+                                </div>
+                            )
+                        })
                 }
             </nav>
             <button

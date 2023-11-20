@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import { Button } from './Button'
 import { useFormStatus } from 'react-dom';
 import toastify from '@/src/utils/tostify';
+import { Button } from './Button';
 
 type SubmitButtonProps = {
     children: React.ReactNode;
@@ -18,10 +18,7 @@ export default function SubmitButton({ children, onClick, ...props }: SubmitButt
             if (toastId.current) toastify.dismiss(toastId.current);
             toastId.current = toastify.loading("Please wait...");
         }
-        else {
-            toastify.dismiss(toastId.current)
-        }
-
+        else toastify.dismiss(toastId.current)
     }, [pending, toastId.current]);
 
     return (

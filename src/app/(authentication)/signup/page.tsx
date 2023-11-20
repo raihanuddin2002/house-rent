@@ -4,11 +4,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/src/components/ui/input/Input';
+import Input from '@/src/components/ui/Input/Input';
 import { useFormState } from 'react-dom';
 import { SignUpAction } from './action';
 import toastify, { ToastType } from '@/src/utils/tostify';
-import SubmitButton from '@/src/components/ui/button/SubmitButton';
+import SubmitButton from '@/src/components/ui/Button/SubmitButton';
 
 export type InitialFormState = {
     responseType: ToastType;
