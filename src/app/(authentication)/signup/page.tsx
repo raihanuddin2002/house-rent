@@ -19,6 +19,7 @@ export type InitialFormState = {
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [checkValidity, setCheckValidity] = useState(false);
     const [state, formAction] = useFormState(SignUpAction, {} as InitialFormState);
     const toastId = useRef('');
 
@@ -36,9 +37,11 @@ export default function SignUp() {
     return (
         <>
             <h1 className='text-2xl md:text-3xl font-bold mt-10'>Welcome to Sign up</h1>
-            <h3 className='text-sm md:mt-2 mb-10 text-slate-400'>Create a new account just a few steps.</h3>
+            <h3 className='text-sm md:mt-2 mb-10 text-slate-400'>
+                Create a new account just a few steps.
+            </h3>
 
-            <form action={formAction}>
+            <form action={formAction} className={`${checkValidity && 'check-form'}`}>
                 <div className='mb-2 w-full lg:w-4/5 flex gap-2'>
                     <Input
                         type="text"
@@ -107,7 +110,7 @@ export default function SignUp() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <SubmitButton>Sign Up</SubmitButton>
+                    <SubmitButton onClick={() => setCheckValidity(true)}>Sign Up</SubmitButton>
                 </div>
             </form>
         </>

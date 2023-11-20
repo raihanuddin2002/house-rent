@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.check-form :required:invalid {
+    border: 1px solid red;
+}
