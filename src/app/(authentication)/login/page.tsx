@@ -1,13 +1,57 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/src/components/ui/input/Input';
-import SubmitButton from '@/src/components/ui/button/SubmitButton';
+import Input from '@/src/components/ui/Input/Input';
+import SubmitButton from '@/src/components/ui/Button/SubmitButton';
+import toastify from '@/src/utils/tostify';
+import { signIn } from 'next-auth/react';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
+    const toastId = useRef('');
+
+    const handleLogin = async (formData: FormData) => {
+        if (toastId.current) toastify.dismiss(toastId.current);
+
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+
+        if (!email || !password) {
+            return toastId.current = toastify.toast({
+                type: 'warn',
+                message: 'Empty Input!'
+            })
+        }
+
+        try {
+            const login = await signIn("credentials", {
+                email,
+                password,
+                redirect: false,
+            });
+
+            if (login?.ok) {
+                return toastId.current = toastify.toast({
+                    type: 'success',
+                    message: "Login Successful!"
+                })
+            } else {
+                return toastId.current = toastify.toast({
+                    type: 'error',
+                    message: "Invalid Credentials!"
+                })
+            }
+        } catch (error) {
+            if (toastId.current) toastify.dismiss(toastId.current);
+
+            toastId.current = toastify.toast({
+                type: 'error',
+                message: "Internal Server Error!"
+            })
+        }
+    }
 
     return (
         <>
@@ -16,7 +60,7 @@ export default function Login() {
                 Enter your registered information.
             </h3>
 
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form action={handleLogin}>
                 <div className='mb-2 w-full lg:w-4/5'>
                     <Input
                         type="email"
@@ -46,9 +90,7 @@ export default function Login() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <SubmitButton>
-                        Login
-                    </SubmitButton>
+                    <SubmitButton>Login</SubmitButton>
                 </div>
             </form>
         </>
