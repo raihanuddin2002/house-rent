@@ -6,6 +6,7 @@
 - Add src folder
 - Add ui folder into components folder
 - Implement Credentials login using Next-auth
+- Password and Confirm password should match while sign up
 
 ## Sprint 1 (November) [01 Nov, 2023 - 10 Nov, 2023]
 ### [released]
