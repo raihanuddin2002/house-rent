@@ -11,6 +11,7 @@ export default function AuthenticationLayout({ children }: { children: React.Rea
             <div className='h-full grid grid-cols-1 md:grid-cols-2'>
                 <section className='bg-white hidden md:grid md:place-items-center'>
                     <Image
+                        style={{ width: 'auto', height: 'auto' }}
                         className='mx-auto'
                         src='/images/authentication.png'
                         alt='authentication image'

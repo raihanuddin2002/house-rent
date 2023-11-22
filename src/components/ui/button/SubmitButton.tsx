@@ -6,10 +6,11 @@ import { Button } from './Button';
 type SubmitButtonProps = {
     children: React.ReactNode;
     className?: string;
+    disabled?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function SubmitButton({ children, onClick, ...props }: SubmitButtonProps) {
+export default function SubmitButton({ children, disabled, onClick, ...props }: SubmitButtonProps) {
     const { pending } = useFormStatus();
     const toastId = useRef('');
 
@@ -24,8 +25,9 @@ export default function SubmitButton({ children, onClick, ...props }: SubmitButt
     return (
         <Button
             type='submit'
+            className='duration-500 hover:duration-500 hover:scale-105 hover:transition-all hover:ease-out'
             onClick={onClick}
-            disabled={pending}
+            disabled={disabled || pending}
             {...props}
         >
             {children}{pending && "..."}
