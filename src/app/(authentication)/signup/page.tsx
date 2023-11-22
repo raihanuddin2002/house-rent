@@ -9,6 +9,7 @@ import { useFormState } from 'react-dom';
 import { SignUpAction } from './action';
 import toastify, { ToastType } from '@/src/utils/tostify';
 import SubmitButton from '@/src/components/ui/Button/SubmitButton';
+import debounce from '@/src/utils/debounce';
 
 export type InitialFormState = {
     responseType: ToastType;
@@ -20,11 +21,15 @@ export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [checkValidity, setCheckValidity] = useState(false);
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const passwordMatch = password === confirmPassword;
+    const passwordType = passwordValidation(password);
     const [state, formAction] = useFormState(SignUpAction, {} as InitialFormState);
     const toastId = useRef('');
 
     useEffect(() => {
-        if (state.responseType && state.message) {
+        if (state?.responseType && state?.message) {
             if (toastId.current) toastify.dismiss(toastId.current);
 
             toastId.current = toastify.toast({
@@ -32,7 +37,11 @@ export default function SignUp() {
                 message: state.message
             });
         }
-    }, [state])
+    }, [state, toastId]);
+
+    const handleInputChange = debounce((value: string, setValue: (value: string) => void) => {
+        setValue(value);
+    })
 
     return (
         <>
@@ -79,6 +88,10 @@ export default function SignUp() {
                         type={`${showPassword ? 'text' : 'password'}`}
                         name='password'
                         placeholder='Password'
+                        onChange={
+                            (e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e.target.value, setPassword)
+                        }
+                        className={passwordType ? `border-${passwordType.color}-500 focus:border-${passwordType.color}-500` : ''}
                         autoComplete='off'
                         maxLength={70}
                         minLength={8}
@@ -96,6 +109,10 @@ export default function SignUp() {
                         type={`${showConfirmPassword ? 'text' : 'password'}`}
                         name='confirm_password'
                         placeholder='Confirm Password'
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => (
+                            handleInputChange(e.target.value, setConfirmPassword)
+                        )}
+                        className={checkValidity && !passwordMatch ? 'border-red-500 focus:border-red-500' : ''}
                         autoComplete='off'
                         maxLength={70}
                         minLength={8}
@@ -110,10 +127,33 @@ export default function SignUp() {
                 </div>
 
                 <div className='w-full lg:w-4/5'>
-                    <SubmitButton onClick={() => setCheckValidity(true)}>Sign Up</SubmitButton>
+                    <SubmitButton
+                        onClick={() => setCheckValidity(true)}
+                        disabled={passwordType?.disabled}
+                    >
+                        Sign Up
+                    </SubmitButton>
                 </div>
             </form>
         </>
 
     )
 }
+
+export const passwordValidation = (password: string) => {
+    if (password === '') return null;
+
+    const minEightLenthRegex = /^(?=.*\d).{8,}$/.test(password);
+    const upperLowerCaseSpecicalOneCharecter = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{0,50}$/.test(password);
+
+    if (upperLowerCaseSpecicalOneCharecter && minEightLenthRegex) {
+        return { label: "Strong", disabled: false, color: 'green' };
+    }
+    if (!upperLowerCaseSpecicalOneCharecter && minEightLenthRegex) {
+        return { label: "Medium", disabled: true, color: 'orange' };
+    }
+    if (!upperLowerCaseSpecicalOneCharecter && !minEightLenthRegex) {
+        return { label: "Weak", disabled: true, color: 'red' };
+    }
+    else return null;
+};

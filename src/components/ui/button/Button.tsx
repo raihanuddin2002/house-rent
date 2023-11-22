@@ -27,7 +27,7 @@ export function Button({
                     bg-black 
                     text-white 
                     rounded-md 
-                    hover:bg-slate-700
+                    disabled:opacity-[0.7]
                     `
                 , className)
             }
