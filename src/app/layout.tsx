@@ -6,7 +6,7 @@ import StateContext from '@/src/context/StateContext'
 import Nav from '../components/Nav';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import LogoImage from '../components/Logo'
+import Logo from '../components/Logo'
 import AuthProvider from '../components/provider/AuthProvider'
 import Toast from '../components/ui/Toast/Toast'
 config.autoAddCss = false
@@ -43,8 +43,8 @@ export default function RootLayout({
           '>
             <Link href='/'>
               <div className='flex items-center'>
-                <LogoImage className='me-3' width={35} height={35} />
-                <h1 className='text-2xl font-semibold'>Bachelor</h1>
+                <Logo className='me-2' size='xl' />
+                <h1 className='text-2xl font-semibold'>House Rent</h1>
               </div>
             </Link>
             <Nav />
