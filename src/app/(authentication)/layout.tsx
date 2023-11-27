@@ -17,6 +17,7 @@ export default function AuthenticationLayout({ children }: { children: React.Rea
                         alt='authentication image'
                         width={700}
                         height={500}
+                        priority={true}
                     />
                 </section>
                 <section className='grid items-center'>

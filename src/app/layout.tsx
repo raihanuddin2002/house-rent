@@ -8,7 +8,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import Logo from '../components/Logo'
 import AuthProvider from '../components/provider/AuthProvider'
-import Toast from '../components/ui/Toast/Toast'
+import ReactToastify from '../components/ui/toast/ReactToastify'
 config.autoAddCss = false
 
 const inter = Dosis({
@@ -17,8 +17,8 @@ const inter = Dosis({
 })
 
 export const metadata: Metadata = {
-  title: 'Bachelor',
-  description: 'This project is for bachelor.',
+  title: 'House Rent',
+  description: 'This is personal project.',
 }
 
 export default function RootLayout({
@@ -59,7 +59,7 @@ export default function RootLayout({
           </AuthProvider>
         </main>
 
-        <Toast />
+        <ReactToastify />
       </body>
     </html>
   )
