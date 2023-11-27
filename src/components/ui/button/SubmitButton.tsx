@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useFormStatus } from 'react-dom';
-import toastify from '@/src/utils/tostify';
-import { Button } from './Button';
+import toastify from '@/src/lib/tostify';
+import Button from './Button';
 
 type SubmitButtonProps = {
     children: React.ReactNode;
@@ -25,7 +25,8 @@ export default function SubmitButton({ children, disabled, onClick, ...props }: 
     return (
         <Button
             type='submit'
-            className='duration-500 hover:duration-500 hover:scale-105 hover:transition-all hover:ease-out'
+            size="lg"
+            className='mt-10'
             onClick={onClick}
             disabled={disabled || pending}
             {...props}

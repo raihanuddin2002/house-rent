@@ -4,12 +4,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/src/components/ui/Input/Input';
+import Input from '@/src/components/ui/input/Input';
 import { useFormState } from 'react-dom';
 import { SignUpAction } from './action';
-import toastify, { ToastType } from '@/src/utils/tostify';
-import SubmitButton from '@/src/components/ui/Button/SubmitButton';
+import toastify, { ToastType } from '@/src/lib/tostify';
+import SubmitButton from '@/src/components/ui/button/SubmitButton';
 import debounce from '@/src/utils/debounce';
+import passwordValidation, { buttonDisabledByPassword } from '@/src/utils/passvalidation';
 
 export type InitialFormState = {
     responseType: ToastType;
@@ -91,10 +92,10 @@ export default function SignUp() {
                         onChange={
                             (e: React.ChangeEvent<HTMLInputElement>) => handleInputChange(e.target.value, setPassword)
                         }
-                        className={passwordType ? `border-${passwordType.color}-500 focus:border-${passwordType.color}-500` : ''}
                         autoComplete='off'
                         maxLength={70}
                         minLength={8}
+                        passwordType={passwordType}
                         required
                     />
                     <FontAwesomeIcon
@@ -129,7 +130,7 @@ export default function SignUp() {
                 <div className='w-full lg:w-4/5'>
                     <SubmitButton
                         onClick={() => setCheckValidity(true)}
-                        disabled={passwordType?.disabled}
+                        disabled={buttonDisabledByPassword(passwordType)}
                     >
                         Sign Up
                     </SubmitButton>
@@ -139,21 +140,3 @@ export default function SignUp() {
 
     )
 }
-
-export const passwordValidation = (password: string) => {
-    if (password === '') return null;
-
-    const minEightLenthRegex = /^(?=.*\d).{8,}$/.test(password);
-    const upperLowerCaseSpecicalOneCharecter = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{0,50}$/.test(password);
-
-    if (upperLowerCaseSpecicalOneCharecter && minEightLenthRegex) {
-        return { label: "Strong", disabled: false, color: 'green' };
-    }
-    if (!upperLowerCaseSpecicalOneCharecter && minEightLenthRegex) {
-        return { label: "Medium", disabled: true, color: 'orange' };
-    }
-    if (!upperLowerCaseSpecicalOneCharecter && !minEightLenthRegex) {
-        return { label: "Weak", disabled: true, color: 'red' };
-    }
-    else return null;
-};

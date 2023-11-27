@@ -3,9 +3,9 @@
 import React, { useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-regular-svg-icons';
-import Input from '@/src/components/ui/Input/Input';
-import SubmitButton from '@/src/components/ui/Button/SubmitButton';
-import toastify from '@/src/utils/tostify';
+import Input from '@/src/components/ui/input/Input';
+import SubmitButton from '@/src/components/ui/button/SubmitButton';
+import toastify from '@/src/lib/tostify';
 import { signIn } from 'next-auth/react';
 
 export default function Login() {
