@@ -14,13 +14,11 @@ export default function SubmitButton({ children, disabled, onClick, ...props }: 
     const { pending } = useFormStatus();
     const toastId = useRef('');
 
-    useEffect(() => {
-        if (pending) {
-            if (toastId.current) toastify.dismiss(toastId.current);
-            toastId.current = toastify.loading("Please wait...");
-        }
-        else toastify.dismiss(toastId.current)
-    }, [pending, toastId.current]);
+    if (pending) {
+        if (toastId.current) toastify.dismiss(toastId.current);
+        toastId.current = toastify.loading("Please wait...");
+    }
+    else toastify.dismiss(toastId.current)
 
     return (
         <Button

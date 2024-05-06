@@ -11,7 +11,7 @@ import AuthProvider from '../components/provider/AuthProvider'
 import ReactToastify from '../components/ui/toast/ReactToastify'
 config.autoAddCss = false
 
-const inter = Dosis({
+const dosis = Dosis({
   weight: ['400', '500', '700'],
   subsets: ['latin']
 })
@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} h-screen`}>
+      <body className={`${dosis.className} h-screen`}>
         <header className='bg-slate-200'>
           <section className='
             h-[70px]
